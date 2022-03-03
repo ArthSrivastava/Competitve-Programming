@@ -54,16 +54,20 @@ public class Presents {
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int n = fr.nextInt();
-        int[] arr = new int[n];
-        for(int i = 0; i < n; i++)
+        int[] arr = new int[n + 1];
+        for(int i = 1; i <= n; i++)
         {
             arr[i] = fr.nextInt();
         }
-        int[] ans = new int[n];
-        for(int i = 0; i < n; i++)
+        int[] ans = new int[n + 1];
+        for(int i = 1; i < n + 1; i++)
         {
-            ans[i] = arr[arr[i] - 1];
+            ans[arr[i]] = i;
         }
-        System.out.println(Arrays.toString(ans));
+        for(int i = 1; i <= n; i++)
+        {
+            System.out.print(ans[i] + " ");
+        }
+
     }
 }
