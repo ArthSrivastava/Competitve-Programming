@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-
+//https://codeforces.com/contest/1430/problem/C
 public class NumbersOnWhiteboard {
     static class FastReader {
         BufferedReader br;
