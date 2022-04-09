@@ -64,11 +64,7 @@ public class NextRound {
             System.out.println(lastOccurrence + 1);
         } else {
             int firstOccurrence = getFirstOccurrence(arr, 0);
-            if (firstOccurrence != 0) {
-                System.out.println(firstOccurrence);
-            } else {
-                System.out.println(0);
-            }
+            System.out.println(firstOccurrence);
         }
     }
 
