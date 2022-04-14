@@ -5,16 +5,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Template {
-    private static void solve() {
-        FastReader fr = new FastReader();
-    }
+public class IsTheScoreConsistent {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-            solve();
+            int a = fr.nextInt();
+            int b = fr.nextInt();
+            int c = fr.nextInt();
+            int d = fr.nextInt();
+            if (a <= c && b <= d) {
+                System.out.println("POSSIBLE");
+            } else {
+                System.out.println("IMPOSSIBLE");
+            }
         }
     }
 

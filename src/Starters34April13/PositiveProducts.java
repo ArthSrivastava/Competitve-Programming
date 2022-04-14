@@ -3,18 +3,43 @@ package Starters34April13;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Template {
-    private static void solve() {
-        FastReader fr = new FastReader();
-    }
+public class PositiveProducts {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-            solve();
+            int n = fr.nextInt();
+            long[] arr = new long[n + 1];
+            long sumPositive = 0, sumNegative = 0;
+            for (int i = 1; i <= n; i++) {
+                arr[i] = fr.nextLong();
+                if (arr[i] > 0) {
+                    sumPositive += 1;
+                } else if (arr[i] < 0) {
+                    sumNegative += 1;
+                }
+            }
+//            System.out.println(Arrays.toString(arr));
+            long count = 0;
+
+            //My method:
+//            for (int i = 1; i < n; i++) {
+//                if (arr[i] > 0) {
+//                    sumPositive = sumPositive - 1;
+//                    count += sumPositive;
+//                } else if (arr[i] < 0) {
+//                    sumNegative -= 1;
+//                    count += sumNegative;
+//                }
+//            }
+
+            //Another way
+            count = ((sumPositive * (sumPositive - 1)) / 2 + (sumNegative * (sumNegative - 1)) / 2);
+            System.out.println(count);
         }
     }
 

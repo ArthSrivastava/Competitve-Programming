@@ -3,18 +3,32 @@ package Starters34April13;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Template {
-    private static void solve() {
-        FastReader fr = new FastReader();
-    }
+public class AverageArray {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-            solve();
+            long n = fr.nextLong();
+            long x = fr.nextLong();
+            long sumReqd = n * x;
+            long s = ((n * (n + 1)) / 2);
+            if (sumReqd > s) {
+                for (int i = 1; i < n; i++) {
+                    System.out.print(i + " ");
+                }
+                System.out.println(n + (sumReqd - s));
+            } else {
+                long l = 1 - (s - sumReqd);
+                System.out.print(l + " ");
+                for (int i = 2; i <= n; i++) {
+                    System.out.print(i + " ");
+                }
+                System.out.println();
+            }
         }
     }
 

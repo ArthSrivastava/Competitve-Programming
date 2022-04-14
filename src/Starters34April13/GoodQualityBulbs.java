@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Template {
+public class GoodQualityBulbs {
     private static void solve() {
         FastReader fr = new FastReader();
     }
@@ -14,7 +14,20 @@ public class Template {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-            solve();
+            int n = fr.nextInt();
+            int x = fr.nextInt();
+            int[] arr = new int[n - 1];
+            int sum = 0;
+            for (int i = 0; i < n - 1; i++) {
+                arr[i] = fr.nextInt();
+                sum += arr[i];
+            }
+            int avg = sum / (n - 1);
+            if (x <= avg) {
+                System.out.println(0);
+            } else {
+                System.out.println((x * n) - sum);
+            }
         }
     }
 
