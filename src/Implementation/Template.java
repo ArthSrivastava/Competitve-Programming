@@ -6,15 +6,11 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Template {
-    private static void solve() {
-
-    }
-
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-            solve();
+
         }
     }
 
