@@ -13,7 +13,7 @@ public class CityDay {
         int y = fr.nextInt();
         long[] rain = new long[n];
         for (int i = 0; i < n; i++) {
-            rain[i] = fr.nextInt();
+            rain[i] = fr.nextLong();
         }
         //Brute Force solution:  0≤x,y≤7, so this in worst case will only take: O(n(x + y))
         int ans = -1;
