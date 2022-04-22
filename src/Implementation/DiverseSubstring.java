@@ -10,6 +10,23 @@ public class DiverseSubstring {
         FastReader fr = new FastReader();
         int n = fr.nextInt();
         String s = fr.nextLine();
+        StringBuilder sb = new StringBuilder();
+        int l = s.length();
+        boolean flag = false;
+        for (int i = 0; i < l - 1; i++) {
+            if (s.charAt(i) != s.charAt(i + 1)) {
+                flag = true;
+                sb.append(s.charAt(i));
+                sb.append(s.charAt(i + 1));
+                break;
+            }
+        }
+        if (flag) {
+            System.out.println("YES");
+            System.out.println(sb);
+        } else {
+            System.out.println("NO");
+        }
     }
 
     static class FastReader {
