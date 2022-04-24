@@ -17,17 +17,31 @@ public class RoomsAndStaircases {
                 rooms = n * 2;
                 System.out.println(rooms);
             } else {
+                int zeroFromStart = 0, zeroFromEnd = 0;
                 for (int i = 0; i < n; i++) {
-                    if (s.charAt(i) == '1') {
-                        rooms += 2;
+                    if (s.charAt(i) != '1') {
+                        zeroFromStart++;
                     } else {
-                        rooms += 1;
+                        break;
                     }
-                System.out.print(rooms + " ");
+                }
+                for (int i = n - 1; i >= 0; i--) {
+                    if (s.charAt(i) != '1') {
+                        zeroFromEnd++;
+                    } else {
+                        break;
+                    }
+                }
+                if (zeroFromStart == n) {
+                    rooms = n;
+                } else {
+                    int min = Math.min(zeroFromStart, zeroFromEnd);
+                    rooms = 2 * (n - min);
+                }
+                System.out.println(rooms);
                 }
             }
         }
-    }
 
     static class FastReader {
         BufferedReader br;
