@@ -14,10 +14,12 @@ public class MinimiseTheMax {
             long dealer = fr.nextLong();
             int type = fr.nextInt();
             long[] vaccines = new long[type];
+            long max = Long.MIN_VALUE;
             for (int i = 0; i < type; i++) {
                 vaccines[i] = fr.nextLong();
+                max = Math.max(max, vaccines[i]);
             }
-            long low = 1, high = dealer;
+            long low = 1, high = max;
             long ans = 0;
             while (low <= high) {
                 long mid = low + (high - low) / 2;
@@ -29,12 +31,11 @@ public class MinimiseTheMax {
                         count += (vaccines[i] / mid) + 1;
                     }
                 }
-                if (count == dealer) {
+//                System.out.println(count);
+                if (count <= dealer) {
                     ans = mid;
                     high = mid - 1;
-                } else if (count < dealer) {
-                    high = mid - 1;
-                } else {
+                }  else {
                     low = mid + 1;
                 }
             }
