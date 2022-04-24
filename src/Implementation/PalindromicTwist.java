@@ -1,14 +1,33 @@
+package Implementation;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Template {
+public class PalindromicTwist {
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-
+            int n = fr.nextInt();
+            String s = fr.nextLine();
+            int start = 0, end = n - 1;
+            boolean flag = true;
+            while (start < end) {
+                int i = Math.abs(s.charAt(start) - s.charAt(end));
+                if (!(i == 0 || i == 2)) {
+                    flag = false;
+                    break;
+                }
+                start++;
+                end--;
+            }
+            if (flag) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
         }
     }
 

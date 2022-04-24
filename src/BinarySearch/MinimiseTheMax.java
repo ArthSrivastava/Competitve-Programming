@@ -1,14 +1,44 @@
+package BinarySearch;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Template {
+public class MinimiseTheMax {
+
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-
+            long dealer = fr.nextLong();
+            int type = fr.nextInt();
+            long[] vaccines = new long[type];
+            for (int i = 0; i < type; i++) {
+                vaccines[i] = fr.nextLong();
+            }
+            long low = 1, high = dealer;
+            long ans = 0;
+            while (low <= high) {
+                long mid = low + (high - low) / 2;
+                int count = 0;
+                for (int i = 0; i < type; i++) {
+                    if (vaccines[i] % mid == 0) {
+                        count += vaccines[i] / mid;
+                    } else {
+                        count += (vaccines[i] / mid) + 1;
+                    }
+                }
+                if (count == dealer) {
+                    ans = mid;
+                    high = mid - 1;
+                } else if (count < dealer) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            }
+            System.out.println(ans);
         }
     }
 

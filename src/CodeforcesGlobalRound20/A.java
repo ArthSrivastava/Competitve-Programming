@@ -1,14 +1,33 @@
+package CodeforcesGlobalRound20;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Template {
+public class A {
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-
+            int n = fr.nextInt();
+            int[] logs = new int[n];
+            for (int i = 0; i < n; i++) {
+                logs[i] = fr.nextInt();
+            }
+            int count = 0;
+            for (int i = 0; i < n; i++) {
+//                while (logs[i] > 1) {
+//                    logs[i]--;
+//                    count++;
+//                }
+                count += logs[i] - 1;
+            }
+            if (count % 2 != 0) {
+                System.out.println("errorgorn");
+            } else {
+                System.out.println("maomao90");
+            }
         }
     }
 
