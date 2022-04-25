@@ -18,14 +18,44 @@ public class ShuffleHashing {
             for (int i = 0; i < n1; i++) {
                 pFreq[p.charAt(i) - 97]++;
             }
+            boolean flag = true;
             boolean found = false;
-                for (int i = 0; i <= n2 - n1; i++) {
-                    int[] tempFreq = new int[26];
-                    boolean flag = true;
-                    for (int j = i; j < i + n1; j++) {
-                        tempFreq[h.charAt(j) - 97]++;
+//                for (int i = 0; i <= n2 - n1; i++) {
+//                    int[] tempFreq = new int[26];
+//                    boolean flag = true;
+//                    for (int j = i; j < i + n1; j++) {
+//                        tempFreq[h.charAt(j) - 97]++;
+//                    }
+////                    System.out.println(Arrays.toString(tempFreq));
+//                    for (int k = 0; k < 26; k++) {
+//                        if (tempFreq[k] != pFreq[k]) {
+//                            flag = false;
+//                            break;
+//                        }
+//                    }
+//                    if (flag) {
+//                        found = true;
+//                        break;
+//                    }
+//                }
+            if (n1 <= n2) {
+                int[] tempFreq = new int[26];
+                for (int i = 0; i < n1; i++) {
+                    tempFreq[h.charAt(i) - 97]++;
+                }
+                for (int k = 0; k < 26; k++) {
+                    if (tempFreq[k] != pFreq[k]) {
+                        flag = false;
+                        break;
                     }
-//                    System.out.println(Arrays.toString(tempFreq));
+                }
+                if (flag) {
+                    found = true;
+                }
+                for (int i = n1; i < n2; i++) {
+                    flag = true;
+                    tempFreq[h.charAt(i - n1) - 97]--;
+                    tempFreq[h.charAt(i) - 97]++;
                     for (int k = 0; k < 26; k++) {
                         if (tempFreq[k] != pFreq[k]) {
                             flag = false;
@@ -37,6 +67,7 @@ public class ShuffleHashing {
                         break;
                     }
                 }
+            }
             if (found) {
                 System.out.println("YES");
             } else {
