@@ -38,6 +38,8 @@ public class ShuffleHashing {
 //                        break;
 //                    }
 //                }
+
+            //Better method by sliding window technique: O(n * 26)
             if (n1 <= n2) {
                 int[] tempFreq = new int[26];
                 for (int i = 0; i < n1; i++) {
