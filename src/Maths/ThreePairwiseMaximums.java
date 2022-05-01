@@ -3,14 +3,26 @@ package Maths;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Template {
+public class ThreePairwiseMaximums {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
+            long[] arr = new long[3];
+            for (int i = 0; i < 3; i++) {
+                arr[i] = fr.nextLong();
+            }
+            Arrays.sort(arr);
+            if (arr[1] != arr[2]) {
+                System.out.println("NO");
+            } else {
+                System.out.println("YES");
+                System.out.println(arr[0] + " " + arr[0] + " " + arr[2]);
+            }
 
         }
     }
