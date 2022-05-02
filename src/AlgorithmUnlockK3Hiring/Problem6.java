@@ -5,19 +5,46 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Problem1 {
+public class Problem6 {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
-        int n = fr.nextInt();
-        long[] arr = new long[n];
-        long sum = 0;
-        for (int i = 0; i < n; i++) {
-            arr[i] = fr.nextInt();
-            sum += arr[i];
+        int t = fr.nextInt();
+        while (t-- > 0) {
+            long n = fr.nextLong();
+            int d = fr.nextInt();
+            long[] arr = new long[d];
+            long sum = 0;
+            for (int i = 0; i < d; i++) {
+                arr[i] = fr.nextLong();
+                sum += arr[i];
+            }
+            long diff = n;
+//            System.out.println(n);
+//            System.out.println(sum);
+            boolean flag = true;
+            if(n > sum && n % sum != 0) {
+                long x = n % sum;
+                flag = true;
+                diff = x;
+            } else if (n > sum && n % sum == 0) {
+                flag = false;
+            }
+            long count = arr[0];
+            int i = 0;
+            if(flag) {
+                while (count < diff) {
+                    i++;
+                    count += arr[i];
+//                    System.out.println(i + " " + count);
+                }
+            }
+            if (flag) {
+                System.out.println(i + 1);
+            } else {
+                System.out.println(d);
+            }
         }
-        long avg = sum / n;
-        System.out.println(avg);
     }
 
     public int gcd(int a, int b) {

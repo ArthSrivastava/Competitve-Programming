@@ -5,19 +5,31 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Problem1 {
+public class Problem3 {
 
+    public static boolean isVowel(char c) {
+        return c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    }
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int n = fr.nextInt();
-        long[] arr = new long[n];
-        long sum = 0;
+        String s = fr.nextLine();
+        long count = 0, countVowel = 0;
         for (int i = 0; i < n; i++) {
-            arr[i] = fr.nextInt();
-            sum += arr[i];
+            if (s.charAt(i) >= 65 && s.charAt(i) <= 90) {
+                count++;
+                if (isVowel(s.charAt(i))) {
+                    countVowel++;
+                }
+            } else if(isVowel(s.charAt(i))) {
+                countVowel++;
+            }
         }
-        long avg = sum / n;
-        System.out.println(avg);
+        if (count > countVowel) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
     }
 
     public int gcd(int a, int b) {

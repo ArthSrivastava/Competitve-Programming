@@ -5,19 +5,30 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Problem1 {
+public class Problem5 {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int n = fr.nextInt();
-        long[] arr = new long[n];
-        long sum = 0;
+        int[] arr = new int[n];
+        long pf = 0, pc = 0;
         for (int i = 0; i < n; i++) {
             arr[i] = fr.nextInt();
-            sum += arr[i];
+            if (i % 2 == 0) {
+                pf += arr[i];
+                pc -= arr[i];
+            } else {
+                pf -= arr[i];
+                pc += arr[i];
+            }
         }
-        long avg = sum / n;
-        System.out.println(avg);
+        if (pf > pc) {
+            System.out.println("Miserable Fool");
+        } else if (pc > pf) {
+            System.out.println("Miserable Cool");
+        } else {
+            System.out.println("Draw");
+        }
     }
 
     public int gcd(int a, int b) {

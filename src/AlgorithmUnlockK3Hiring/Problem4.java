@@ -5,19 +5,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Problem1 {
+public class Problem4 {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int n = fr.nextInt();
-        long[] arr = new long[n];
-        long sum = 0;
+        int k = fr.nextInt();
+        int count = 0;
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = fr.nextInt();
-            sum += arr[i];
+            if (arr[i] >= k) {
+                count++;
+            }
         }
-        long avg = sum / n;
-        System.out.println(avg);
+        System.out.println(count);
     }
 
     public int gcd(int a, int b) {

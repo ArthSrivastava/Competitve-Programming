@@ -5,19 +5,32 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Problem1 {
+public class Problem7 {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
-        int n = fr.nextInt();
-        long[] arr = new long[n];
-        long sum = 0;
-        for (int i = 0; i < n; i++) {
-            arr[i] = fr.nextInt();
-            sum += arr[i];
+        int t = fr.nextInt();
+        while (t-- > 0) {
+            int n = fr.nextInt();
+            String s = fr.nextLine();
+            long[] arr = new long[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = fr.nextLong();
+            }
+            char c;
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < n; i++) {
+                if ((s.charAt(i) + (arr[i] % 26) > 122)){
+//                    if(s.charAt(i) == 'e'){
+//                        System.out.println("IN" + arr[i]);}
+                    c = (char) (((s.charAt(i) + (arr[i] % 26)) % 122) + 96);
+                } else {
+                    c = (char)(s.charAt(i) + (arr[i] % 26));
+                }
+                sb.append(c);
+            }
+            System.out.println(sb);
         }
-        long avg = sum / n;
-        System.out.println(avg);
     }
 
     public int gcd(int a, int b) {
