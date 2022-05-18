@@ -12,31 +12,27 @@ public class BoboniuLikesToColorBalls {
         int t = fr.nextInt();
         while (t-- > 0) {
             long[] arr = new long[4];
-            int cnt = 0, cntZero = 0;
+            int cntOdd = 0, cntZero = 0;
             for (int i = 0; i < 4; i++) {
                 arr[i] = fr.nextLong();
-                if (i != 3 && arr[i] % 2 == 0 && arr[i] != 0) {
-                    cnt++;
+                if (arr[i] % 2 != 0) {
+                    cntOdd++;
                 }
-                if (i != 3 && arr[i] == 0) {
+                if (arr[i] == 0 && i != 3) {
                     cntZero++;
                 }
             }
-            if (cntZero == 3 || cntZero == 4) {
-                System.out.println("Yes");
-            } else if(arr[3] % 2 == 0) {
-                if (cnt > 0) {
-                    System.out.println("Yes");
-                }
+
+            //If odd = 0 -> yes
+            //odd = 1 -> yes
+            //odd = 2 -> no
+            //odd = 3 || odd = 4 -> freq of all > 0
+            if (cntOdd == 2 || (cntOdd >= 3 && (cntZero > 0))) {
+                System.out.println("No");
             } else {
-                if (cnt > 0) {
-                    System.out.println("Yes");
-                } else if (cntZero > 0) {
-                    System.out.println("No");
-                } else {
-                    System.out.println("Yes");
-                }
+                System.out.println("Yes");
             }
+
         }
     }
 
