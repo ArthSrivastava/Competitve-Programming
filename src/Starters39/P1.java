@@ -1,15 +1,29 @@
+package Starters39;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
-public class Template {
+public class P1 {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-
+            int n = fr.nextInt();
+            String[] arr = new String[n];
+            int cnt1 = 0, cnt2 = 0;
+            for (int i = 0; i < n; i++) {
+                arr[i] = fr.next();
+                if (Objects.equals(arr[i], "START38")) {
+                    cnt1++;
+                } else {
+                    cnt2++;
+                }
+            }
+            System.out.println(cnt1 + " " + cnt2);
         }
     }
 

@@ -1,15 +1,43 @@
+package Starters39;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Template {
+public class P3 {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int t = fr.nextInt();
         while (t-- > 0) {
-
+            int n = fr.nextInt();
+            long[] arr = new long[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = fr.nextLong();
+            }
+            if (n == 1) {
+                System.out.println(1);
+            } else {
+                int cnt = 0;
+                for (int i = 0; i < n - 1; ) {
+                    if (arr[i] != arr[i + 1]) {
+                        cnt++;
+                        i++;
+                    } else {
+                        int j = i + 1;
+                        while (j < n && arr[i] == arr[j]) {
+                            j++;
+                        }
+                        cnt++;
+                        i = j;
+                    }
+                }
+                if (arr[n - 1] != arr[n - 2]) {
+                    cnt++;
+                }
+                System.out.println(cnt);
+            }
         }
     }
 
