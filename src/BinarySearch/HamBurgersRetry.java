@@ -35,11 +35,11 @@ public class HamBurgersRetry {
             if(extraB < 0) extraB = 0;
             if(extraS < 0) extraS = 0;
             if(extraC < 0) extraC = 0;
-            long extraMoney = (extraB * prices[0]) + (extraS * prices[1]) + (extraC * prices[2]);
+            long totalMoney = (extraB * prices[0]) + (extraS * prices[1]) + (extraC * prices[2]);
 //            System.out.println(mid);
 //            System.out.println("B:" + extraB + " S:" + extraS + " C:" + extraC);
 //            System.out.println(ans);
-            if (extraMoney <= r) {
+            if (totalMoney <= r) {
                 ans = mid;
                 low = mid + 1;
             } else {
