@@ -5,30 +5,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class PetrAndACombinationLock {
+public class LunchRush {
 
     public static void main(String[] args) {
         FastReader fr = new FastReader();
         int n = fr.nextInt();
-        int[] arr = new int[n];
-        int c = 0;
+        long k = fr.nextLong();
+        long max = Long.MIN_VALUE;
         while (n-- > 0) {
-            int a = fr.nextInt();
-            arr[c++] = a;
+            long f = fr.nextLong();
+            long t = fr.nextLong();
+            long ans = f;
+            if (t > k) {
+                ans = f - (t - k);
+            }
+            max = Math.max(ans, max);
         }
-        boolean flag = check(arr, 0, 0);
-        if (flag) {
-            System.out.println("YES");
-        } else {
-            System.out.println("NO");
-        }
-    }
-
-    private static boolean check(int[] arr, int sum, int index) {
-        if(index == arr.length) {
-            return sum % 360 == 0;
-        }
-        return check(arr, sum + arr[index], index + 1) || check(arr, sum - arr[index], index + 1);
+        System.out.println(max);
     }
 
     public static int gcd(int a, int b) {
